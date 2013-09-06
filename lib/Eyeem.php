@@ -306,6 +306,17 @@ class Eyeem
     return $this->request('/missions/lightweight', 'GET', $params)['missions'];
   }
 
+  function addMission($params = array())
+  {
+    return $this->request('/missions/lightweight', 'POST', $params);
+  }
+
+  function deleteMission($id)
+  {
+    $params = ['id' => $id];
+    return $this->request('/missions/lightweight', 'DELETE', $params);
+  }
+
   public function __call($name, $arguments)
   {
     $actions = array('get', 'set');
