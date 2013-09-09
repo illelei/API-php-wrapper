@@ -136,6 +136,13 @@ class Eyeem
     return $this;
   }
 
+  public function changeUserPassword($user_id, $password) {
+    $params = [
+      'password' => $password
+    ];
+    return $this->request('/users/' . $user_id, 'POST', $params);
+  }
+
   public function signUp($email, $password, $nickname = null, $fullname = null)
   {
     $this->request('/auth/signUp', 'POST', compact('email', 'password', 'nickname', 'fullname'));
